@@ -21,7 +21,6 @@ public class Vendor implements Serializable {
     private static final long serialVersionUID = 8548954762044567903L;
 
     @EmbeddedId
-//    @Column(name = "vendorPKId")
     private VendorPKId vendorPKId;
 
     @Column(name = "address")

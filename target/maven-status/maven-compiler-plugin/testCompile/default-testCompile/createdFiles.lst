@@ -1,1 +1,3 @@
 com\example\shoppingstore\PasswordTest.class
+com\example\shoppingstore\web\product\ProductControllerTest$CustomizationConfiguration.class
+com\example\shoppingstore\web\product\ProductControllerTest.class
