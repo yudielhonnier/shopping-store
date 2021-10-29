@@ -1,0 +1,10 @@
+= RESTful Product API Specification
+{project-version}
+:doctype: book
+
+== List products
+A `GET` request is used to List Products
+
+operation::should-list-products[snippets='http-request,request-fields,http-response']
+
+include::{snippets}/should-list-products/curl-request.adoc[]

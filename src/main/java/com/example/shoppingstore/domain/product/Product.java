@@ -68,4 +68,6 @@ public class Product implements Serializable {
         hash = (id.hashCode() != 0) ? id.hashCode() : 0;
         return hash;
     }
+
+
 }
