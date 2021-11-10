@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class VendorServiceImpl implements VendorService {
@@ -46,6 +47,15 @@ public class VendorServiceImpl implements VendorService {
         Optional<Vendor> vendor = vendorRepository.findByVendorPKIdName(name);
 
         return vendor.get();
+    }
+
+
+    public List<Address> getAddress(){
+        List<Address> addresses=vendorRepository.findAll()
+                .stream()
+                .map((vendor -> vendor.getAddress()))
+                .collect(Collectors.toList());
+        return addresses;
     }
 
 

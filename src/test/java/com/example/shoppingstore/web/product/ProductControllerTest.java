@@ -96,6 +96,7 @@ class ProductControllerTest {
                 .build();
     }
 
+    //TODOO MAKE THIS METHOD RETURN PAGES
     @Test
     @DisplayName("Should list all the products when mackin Get request to endpoint -/api/v1.0/product/list")
     void shouldListProducts() throws Exception {
@@ -134,9 +135,6 @@ class ProductControllerTest {
     //TODO TO FINISH THESE  METHODS BELOW
     @Test
     void setProduct() {
-
-
-
     }
 
     @Test

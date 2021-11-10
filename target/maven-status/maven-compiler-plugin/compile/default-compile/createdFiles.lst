@@ -35,12 +35,14 @@ com\example\shoppingstore\web\vendor\VendorController.class
 com\example\shoppingstore\web\vendor\VendorForm.class
 com\example\shoppingstore\web\vendor\VendorPKIdDTO$VendorPKIdDTOBuilder.class
 com\example\shoppingstore\ShopApplication.class
+com\example\shoppingstore\web\report\AddressReportController.class
 com\example\shoppingstore\infraestructure\utils\Constant.class
 com\example\shoppingstore\oauth2\AuthorizacionServerConfiguration.class
 com\example\shoppingstore\domain\vendor\Vendor.class
 com\example\shoppingstore\events\MyAccount.class
 com\example\shoppingstore\domain\product\Product.class
 com\example\shoppingstore\domain\vendor\VendorPKIdFactory.class
+com\example\shoppingstore\infraestructure\report\AddressReportService.class
 com\example\shoppingstore\domain\customer\CustomerFactory.class
 com\example\shoppingstore\exceptions\ProductNotFoundException.class
 com\example\shoppingstore\exceptions\VendorNotFoundException.class

@@ -18,4 +18,6 @@ public interface VendorService {
 
     Vendor getVendorByName(String name);
 
+    List<Address> getAddress();
+
 }

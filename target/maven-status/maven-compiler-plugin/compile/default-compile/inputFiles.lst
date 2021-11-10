@@ -40,6 +40,7 @@ D:\MY PROYECTS BACKEND\shopping-store\shopping-store\src\main\java\com\example\s
 D:\MY PROYECTS BACKEND\shopping-store\shopping-store\src\main\java\com\example\shoppingstore\web\vendor\VendorModel.java
 D:\MY PROYECTS BACKEND\shopping-store\shopping-store\src\main\java\com\example\shoppingstore\domain\customer\CustomerService.java
 D:\MY PROYECTS BACKEND\shopping-store\shopping-store\src\main\java\com\example\shoppingstore\web\product\ProductController.java
+D:\MY PROYECTS BACKEND\shopping-store\shopping-store\src\main\java\com\example\shoppingstore\web\report\AddressReportController.java
 D:\MY PROYECTS BACKEND\shopping-store\shopping-store\src\main\java\com\example\shoppingstore\domain\vendor\VendorService.java
 D:\MY PROYECTS BACKEND\shopping-store\shopping-store\src\main\java\com\example\shoppingstore\web\product\ProductModel.java
 D:\MY PROYECTS BACKEND\shopping-store\shopping-store\src\main\java\com\example\shoppingstore\domain\product\Product.java
@@ -48,6 +49,7 @@ D:\MY PROYECTS BACKEND\shopping-store\shopping-store\src\main\java\com\example\s
 D:\MY PROYECTS BACKEND\shopping-store\shopping-store\src\main\java\com\example\shoppingstore\events\MyAccount.java
 D:\MY PROYECTS BACKEND\shopping-store\shopping-store\src\main\java\com\example\shoppingstore\exceptions\VendorNotFoundException.java
 D:\MY PROYECTS BACKEND\shopping-store\shopping-store\src\main\java\com\example\shoppingstore\infraestructure\customer\CustomerServiceImpl.java
+D:\MY PROYECTS BACKEND\shopping-store\shopping-store\src\main\java\com\example\shoppingstore\infraestructure\report\AddressReportService.java
 D:\MY PROYECTS BACKEND\shopping-store\shopping-store\src\main\java\com\example\shoppingstore\exceptions\ShoppingStoreException.java
 D:\MY PROYECTS BACKEND\shopping-store\shopping-store\src\main\java\com\example\shoppingstore\oauth2\CorsConfig.java
 D:\MY PROYECTS BACKEND\shopping-store\shopping-store\src\main\java\com\example\shoppingstore\web\product\ProductDTO.java
