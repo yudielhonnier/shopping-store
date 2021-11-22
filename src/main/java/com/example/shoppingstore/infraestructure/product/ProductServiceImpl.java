@@ -2,18 +2,18 @@ package com.example.shoppingstore.infraestructure.product;
 
 
 import com.example.shoppingstore.domain.product.*;
-import com.example.shoppingstore.domain.vendor.Vendor;
+import com.example.shoppingstore.domain.vendor.VendorPKIdFactory;
 import com.example.shoppingstore.exceptions.ProductNotFoundException;
 import com.example.shoppingstore.exceptions.ShoppingStoreException;
 import com.example.shoppingstore.web.product.ProductDTO;
 import com.example.shoppingstore.web.product.ProductForm;
+import com.example.shoppingstore.web.vendor.VendorPKIdDTO;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.List;
 import java.util.Optional;
 
 //TODO READ ABOUT SPY,SEARCH IN BAELDONG
@@ -26,10 +26,20 @@ public class ProductServiceImpl implements ProductService {
     @Resource
     private ProductFactory productFactory;
 
+    @Resource
+    private VendorPKIdFactory vendorPKIdFactory;
 
+    @Override
     public Page<Product> listProducts(ProductForm productForm, Pageable pageable) {
         return productRepository.findAll(ProductSpec.listProduct(productForm), pageable);
     }
+
+
+    @Override
+    public Page<Product> listProductsByVendor(VendorPKIdDTO vendorPKIdDTO, Pageable pageable) {
+        return productRepository.findAll(ProductSpec.listProductByVendor(vendorPKIdFactory.toVendorPKId(vendorPKIdDTO)), pageable);
+    }
+
 
     //If i don't use findByName then I go to take a bug
     @Override
@@ -47,6 +57,7 @@ public class ProductServiceImpl implements ProductService {
         return Optional.ofNullable(productToSave);
     }
 
+
     @Override
     public Optional<Product> getProductById(Long productId) {
         Product product = productRepository.findById(productId)
@@ -54,25 +65,24 @@ public class ProductServiceImpl implements ProductService {
         return Optional.ofNullable(product);
     }
 
+
     @Override
     public Optional<Product> updateProduct(ProductDTO productDTO, Long productId) {
         Product product = productRepository.findById(productId)
                 .orElseThrow(() -> new ProductNotFoundException("" + productId));
-        ;
         return Optional.ofNullable(productFactory.toProductUpdate(productDTO, product));
     }
 
+
+
+
     @Override
-    public List<Product> listProductsByVendor(Vendor vendor) {
-        return productRepository.findByVendor(vendor);
-    }
-
-
     public Optional<Product> getProductByName(String name) {
         Product product = productRepository.findByNameproduct(name)
                 .orElseThrow(() -> new ProductNotFoundException("NO EXIST PRODUCT WHIT THAT NAME"));
         return Optional.ofNullable(product);
     }
+
 
     @Override
     public Optional<Product> delProduct(Long id) {

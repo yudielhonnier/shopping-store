@@ -1,6 +1,7 @@
 package com.example.shoppingstore.domain.customer;
 
 import com.example.shoppingstore.web.customer.CustomerDTO;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 
 
@@ -13,8 +14,7 @@ public class CustomerFactory {
                 .email(customerDTO.getEmail())
                 .role(toRole(customerDTO.getRole()))
                 .doj(customerDTO.convertDojToDate())
-                //TODO SEE IF I CAN GET THE CURRENTUSER
-                .createdBy("ADMIN")
+                .createdBy(getCurrentUser())
                 .build();
     }
 
@@ -28,6 +28,11 @@ public class CustomerFactory {
             }
         }
         return null;
+    }
+
+
+    private String getCurrentUser(){
+       return SecurityContextHolder.getContext().getAuthentication().getName();
     }
 
 }

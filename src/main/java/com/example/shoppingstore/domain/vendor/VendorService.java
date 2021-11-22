@@ -1,6 +1,7 @@
 package com.example.shoppingstore.domain.vendor;
 
 
+import com.example.shoppingstore.domain.report.VendorPerCity;
 import com.example.shoppingstore.web.vendor.VendorDTO;
 import com.example.shoppingstore.web.vendor.VendorPKIdDTO;
 import org.springframework.stereotype.Service;
@@ -19,5 +20,7 @@ public interface VendorService {
     Vendor getVendorByName(String name);
 
     List<Address> getAddress();
+
+    List<VendorPerCity> getVendorsPerCity();
 
 }

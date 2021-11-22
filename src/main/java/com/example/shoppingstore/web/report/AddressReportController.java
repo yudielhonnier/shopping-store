@@ -22,5 +22,12 @@ public class AddressReportController {
         return addressReportService.exportReport(reportFormat);
     }
 
+       @RequestMapping(method = RequestMethod.GET,path = "/generatePieChart/{reportFormat}")
+    public String generatePieChart(@PathVariable String reportFormat) throws FileNotFoundException, JRException {
+        return addressReportService.exportPieChart(reportFormat);
+    }
+
+
+
 
 }

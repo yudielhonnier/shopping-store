@@ -19,8 +19,6 @@ public class VendorPKId implements Serializable {
 
     @NotNull
     @Column(name = "idVendor")
-//    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "dvendor_seq")
-//    @SequenceGenerator(name = "dvendor_id_seq", allocationSize = 1)
     @Basic(optional = false)
     private Long idVendor;
 

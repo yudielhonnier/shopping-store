@@ -10,6 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class ShopApplication implements CommandLineRunner {
 
+
     public static void main(String[] args) {
 
         SpringApplication.run(ShopApplication.class, args);
@@ -17,7 +18,6 @@ public class ShopApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-
 
     }
 }

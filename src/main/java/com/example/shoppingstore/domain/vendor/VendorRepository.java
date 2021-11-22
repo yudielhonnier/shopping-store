@@ -10,6 +10,4 @@ public interface VendorRepository extends JpaRepository<Vendor, VendorPKId> {
 
     Optional<Vendor> findByVendorPKIdName(String name);
 
-
-
 }

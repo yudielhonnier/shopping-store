@@ -4,6 +4,7 @@ package com.example.shoppingstore.web.product;
 import com.example.shoppingstore.domain.product.Product;
 import com.example.shoppingstore.domain.product.ProductService;
 import com.example.shoppingstore.infraestructure.utils.HeaderUtil;
+
 import com.sun.istack.NotNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -57,6 +58,24 @@ public class ProductController {
                 .body(pagedResourcesAssembler.toModel(pageProduct));
     }
 
+
+    @RequestMapping(path = "/listByvendor", method = RequestMethod.POST, consumes = "application/json")
+    public ResponseEntity<PagedModel<Product>> listProductsByVendor(@RequestBody VendorPKIdDTO vendorPKIdDTO, Pageable pageable) {
+        Page<Product> pageProduct = productService.listProductsByVendor(vendorPKIdDTO, pageable);
+
+        if (pageProduct.isEmpty()) {
+            //TODO FIX HEADER UTIL
+            return ResponseEntity.ok()
+                    .headers(HeaderUtil.badRequestAlert("product.list.error.page-isempty"))
+                    .body(pagedResourcesAssembler.toModel(pageProduct));
+        }
+
+        return ResponseEntity.ok()
+                .headers(HeaderUtil.infoAlert("product.list.successs"))
+                .body(pagedResourcesAssembler.toModel(pageProduct));
+    }
+
+
     //TODO FIX THE PROBLEM SAVING THE PRODUCT
     @RequestMapping(path = "/set", method = RequestMethod.POST, consumes = "application/json")
     public ResponseEntity<ProductModel> setProduct(@RequestBody ProductDTO productDTO) throws URISyntaxException {
@@ -70,8 +89,8 @@ public class ProductController {
         return ResponseEntity.created(new URI(ENTITY_API + ENTITY_URI + productDTO.getId()))
                 .headers(HeaderUtil.infoAlert("product.post.success"))
                 .body(productModelAssembler.toModel(optionalProduct.get()));
-
     }
+
 
     @RequestMapping(path = "/{productId}", method = RequestMethod.GET)
     public ResponseEntity<ProductModel> getProductById(@PathVariable Long productId) {
@@ -84,6 +103,21 @@ public class ProductController {
         }
         return ResponseEntity.ok()
                 .headers(HeaderUtil.infoAlert("product.get.successs"))
+                .body(productModelAssembler.toModel(optionalProduct.get()));
+    }
+
+
+    @RequestMapping(path = "getByName/{productName}", method = RequestMethod.GET)
+    public ResponseEntity<ProductModel> getProductByName(@PathVariable String productName) {
+        Optional<Product> optionalProduct = productService.getProductByName(productName);
+        if (optionalProduct.isEmpty()) {
+
+            return ResponseEntity.ok()
+                    .headers(HeaderUtil.badRequestAlert("product.get.byName.error"))
+                    .body(productModelAssembler.toModel(optionalProduct.get()));
+        }
+        return ResponseEntity.ok()
+                .headers(HeaderUtil.infoAlert("product.get.byName.successs"))
                 .body(productModelAssembler.toModel(optionalProduct.get()));
     }
 
@@ -119,6 +153,4 @@ public class ProductController {
                     .body(productModelAssembler.toModel(deletedProduct.get()));
         }
     }
-
-
 }

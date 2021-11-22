@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.18.1.final using JasperReports Library version 6.18.1-9d75d1969e774d4f179fb3be8401e98a0e6d1611  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+              name="Blank_A4" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20"
+              topMargin="20" bottomMargin="20" uuid="a96a7a1f-5684-4964-9003-b598e3188085">
+    <property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+    <property name="com.jaspersoft.studio.data.defaultdataadapter" value="Sample DB"/>
+
+    <field name="countVendors" class="java.lang.Long">
+
+    </field>
+    <field name="city" class="java.lang.String">
+    </field>
+    <group name="countVendors">
+        <groupExpression><![CDATA[$F{countVendors}]]></groupExpression>
+    </group>
+
+    <group name="city">
+        <groupExpression><![CDATA[$F{city}]]></groupExpression>
+    </group>
+    <background>
+        <band splitType="Stretch"/>
+    </background>
+    <title>
+        <band height="79" splitType="Stretch">
+            <textField>
+                <reportElement x="0" y="0" width="555" height="79" uuid="fd7474d7-f7a6-4aa8-ad66-1533ffaf6d95"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="24"/>
+                </textElement>
+                <textFieldExpression><![CDATA["Number of Vendors per City"]]></textFieldExpression>
+            </textField>
+        </band>
+    </title>
+    <pageHeader>
+        <band splitType="Stretch">
+            <property name="com.jaspersoft.studio.unit.height" value="px"/>
+        </band>
+    </pageHeader>
+    <summary>
+        <band height="226" splitType="Stretch">
+            <pieChart>
+                <chart evaluationTime="Report">
+                    <reportElement x="0" y="0" width="555" height="226" uuid="463775b4-2b33-489d-afe3-e66df47e6bbc"/>
+                    <chartTitle/>
+                    <chartSubtitle/>
+                    <chartLegend/>
+                </chart>
+                <pieDataset>
+                    <dataset resetType="Report"/>
+                    <keyExpression><![CDATA[$F{city}]]></keyExpression>
+                    <valueExpression><![CDATA[$F{countVendors}]]></valueExpression>
+                    <labelExpression><![CDATA[$F{countVendors}+""]]></labelExpression>
+                </pieDataset>
+                <piePlot>
+                    <plot/>
+                    <itemLabel/>
+                </piePlot>
+            </pieChart>
+        </band>
+    </summary>
+</jasperReport>
