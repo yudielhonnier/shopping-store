@@ -1,6 +1,6 @@
 package com.example.shoppingstore.domain.vendor;
 
-import com.example.shoppingstore.web.vendor.VendorPKIdDTO;
+import com.example.shoppingstore.web.product.VendorPKIdDTO;
 import org.springframework.stereotype.Component;
 
 @Component

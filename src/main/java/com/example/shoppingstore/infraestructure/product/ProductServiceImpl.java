@@ -7,7 +7,7 @@ import com.example.shoppingstore.exceptions.ProductNotFoundException;
 import com.example.shoppingstore.exceptions.ShoppingStoreException;
 import com.example.shoppingstore.web.product.ProductDTO;
 import com.example.shoppingstore.web.product.ProductForm;
-import com.example.shoppingstore.web.vendor.VendorPKIdDTO;
+import com.example.shoppingstore.web.product.VendorPKIdDTO;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
